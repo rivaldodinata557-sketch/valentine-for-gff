@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine untuk Pacar Sayang 💖</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -10%; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .section {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .funny-section {
+            background: #fffacd;
+            border: 2px dashed #ff69b4;
+        }
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #c2185b;
+        }
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #e91e63;
+        }
+        .accessories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .accessory {
+            margin: 10px;
+            font-size: 3em;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <h1>Happy Valentine, Pacar Sayang! 💖</h1>
+    <p>Kamu adalah segalanya buat aku. Aku sayang banget sama kamu, lebih dari kata-kata bisa ungkapkan. Setiap hari bersamamu adalah kebahagiaan terbesar. Aku cinta kamu selamanya! 😘</p>
+
+    <div class="section">
+        <h2>Aksesoris Menggemaskan untuk Kamu 🐻💕</h2>
+        <div class="accessories">
+            <div class="accessory">🐻</div>
+            <div class="accessory">💖</div>
+            <div class="accessory">🌸</div>
+            <div class="accessory">🍫</div>
+            <div class="accessory">🎀</div>
+        </div>
+        <p>Bayangin deh, aku kasih kamu boneka beruang ini setiap hari. Kamu lucu banget kalau pegangnya! 😍</p>
+    </div>
+
+    <div class="section funny-section">
+        <h2>Hal Lucu dan Romantis Buat Kamu 😂💑</h2>
+        <p>Kamu seperti bug di hati aku, selalu pengen aku perbaiki setiap saat. Tapi aku seneng banget, karena itu berarti aku bisa deket kamu terus! 🐛❤️</p>
+        <p>Kamu itu kayak WiFi aku: tanpa kamu, hidup aku offline dan bingung. Tapi sama kamu, semuanya lancar dan penuh cinta! 📶😘</p>
+        <p>Aku cinta kamu lebih dari aku cinta tidur. Dan itu artinya, aku rela bangun pagi-pagi buat bilang "I love you" ke kamu! 😴💕</p>
+        <p>Kamu itu kayak kopi aku: pahit manis, bikin aku ketagihan, dan tanpa kamu hari aku ga lengkap! ☕❤️</p>
+    </div>
+
+    <div class="section">
+        <h2>Tombol Interaktif: Kamu Sayang Aku Ga? 💖</h2>
+        <button onclick="sayYes()">Klik jika kamu sayang aku 💖💖</button>
+        <button onclick="sayNo()">Tidak</button>
+        <div id="message"></div>
+    </div>
+
+    <div class="section">
+        <h2>Pesan Cinta Random Buat Kamu 🎲❤️</h2>
+        <button onclick="randomLove()">Generate Pesan Cinta Acak</button>
+        <p id="randomMessage">Klik tombol di atas buat dapet pesan cinta spesial!</p>
+    </div>
+
+    <div class="section">
+        <h2>Musik Valentine yang Romantis 🎶</h2>
+        <p>Dengerin lagu ini sambil baca pesan aku ya, biar lebih romantis! (Saya embed dari YouTube; ganti link jika mau yang lain.)</p>
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/0JQ5I0hzRXg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Alternatif: Gunakan audio lokal jika punya file MP3 -->
+        <!-- <audio controls><source src="your-music.mp3" type="audio/mpeg"></audio> -->
+    </div>
+
+    <script>
+        // Animasi hati jatuh
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+
+        // Fungsi tombol interaktif
+        function sayYes() {
+            document.getElementById('message').innerHTML = 'Yay! Aku tahu kamu sayang aku juga! 💕😘 Kamu adalah yang terbaik!';
+        }
+        function sayNo() {
+            document.getElementById('message').innerHTML = 'Seriusan kamu ga sayang sama aku? 😒 Tapi aku tetap cinta kamu kok! 😘';
+        }
+
+        // Pesan cinta random
+        const loveMessages = [
+            "Aku cinta kamu lebih dari bintang di langit! 🌟❤️",
+            "Kamu bikin hari aku lebih cerah, seperti matahari pagi. ☀️😍",
+            "Tanpa kamu, hidup aku kayak puzzle yang kurang satu keping. 🧩💖",
+            "Aku pengen jaga kamu selamanya, kayak harta karun paling berharga. 💎😘",
+            "Ciuman kamu bikin aku lupa dunia, hanya ada kita berdua. 😘💋",
+            "Kamu itu impian aku yang jadi nyata. Mimpi apa lagi yang lebih indah? 🌙❤️",
+            "Aku sayang kamu, bahkan saat kamu ngorok keras malam-malam. 😴😂 (Tapi tetap lucu!)",
+            "Kamu kayak charger aku: tanpa kamu, aku mati. 🔋💕",
+            "Aku cinta kamu dari ujung rambut sampai ujung kaki. Bahkan kuku kamu lucu! 🦶😍"
+        ];
+        function randomLove() {
+            const randomIndex = Math.floor(Math.random() * loveMessages.length);
+            document.getElementById('randomMessage').innerHTML = loveMessages[randomIndex];
+        }
+    </script>
+</body>
+</html>
